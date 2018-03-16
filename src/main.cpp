@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 #include <wiringPi.h>
 #include "Defines.h"
-
+#include <QDebug>
 void SetupPins()
 {
     if(wiringPiSetup() != -1)
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     qDebug() << "Robô seguidor de linha";
-    //printf()
+
 
     return 0;
 }

@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <wiringPi.h>
+#include <math.h>
 #include "Defines.h"
+
 
 enum class Side
 {
@@ -23,9 +25,9 @@ class Mechanical : public QObject
 {
     Q_OBJECT
 
-public:
+private:
     explicit Mechanical(QObject *parent = 0);
-
+public:
     static void ControlSpeed(int powerLeft,int powerRight);
     static void Turn(Side side);
     static void Turn(Side side, float SizeArc, float Angle);
@@ -38,10 +40,11 @@ signals:
 
 private:
     //Sensors Values
-    static quint16 FrontSensor = 0, LeftSensor = 0, RightSensor = 0, BackRightSensor = 0, BackLeftSensor = 0;
-
-
-
+    static int FrontSensor;
+    static int LeftSensor;
+    static int RightSensor;
+    static int BackRightSensor;
+    static int BackLeftSensor;
 };
 
 #endif // MECHANICAL_H
